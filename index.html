@@ -1,62 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Poppins:wght@800&display=swap" rel="stylesheet">    
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TekstiAI Embed Demo</title>
-    <style>
-      body {
-        height: 100vh;
-        margin: 0;
-        padding: 0 1rem;
-        font-family: sans-serif;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        background: linear-gradient(#fff, #44ddc5);
-        font-family: "Inter", sans-serif;
-      }
-      header {
-        padding-top: 2rem;
-      }
-      h1 {
-        font-family: "Poppins", sans-serif;
-        font-weight: 800;
-        margin: 0;
-        padding: 0;
-      }
-      a {
-        color: #000;
-      }
-      .iframe-container {
-        width: 100%;
-        height: 100%;
-        max-width: 800px;
-        max-height: 600px;
-        aspect-ratio: 4 / 3; /* 800 / 600 */
-      }
-
-      .iframe-container > iframe {
-        width: 100%;
-        height: 100%;
-        border: 0;
-        border-radius: 0.5rem;
-      }
-    </style>
+    <title>TekstiAI Widget Demo</title>
+    <link rel="stylesheet" href="./tekstiai-widget/style.css" />
   </head>
-  <body>
-    <header>
-      <h1>TekstiAI Embed Demo</h1>
-    </header>
-    <div class="iframe-container">
-      <iframe src="https://develop.teksti.ai/embed?org=TA-a7lz8duvSOGQVbFaKs90YI8_rcCUw"></iframe>
+  <body style="height: 100vh; background-color: #d3d3d3;">
+    <div style="width: 100%; display: flex; flex-direction: column; justify-content:space-between; align-items: center; gap: 50px; margin-top: 100px;">
+      <h1 style="font-size: larger; font-weight: bold;">TekstiAI widget demo</h1>
+      <div id="tekstiai-embed-widget" style="width: 800px; height: 600px; background-color: #FFF; border-radius: 10px;"></div>
     </div>
-    <footer>
-      <p>Powered by <a href="https://teksti.ai">TekstiAI</a></p>
-    </footer>
+    <script
+      type="module"
+      src="./tekstiai-widget/tekstiai-embed-widget.js"
+      defer
+    ></script>
+    <script type="module">
+      import { renderTekstiaiWidget } from "./tekstiai-widget/tekstiai-embed-widget.js";
+      renderTekstiaiWidget(
+        document.getElementById("tekstiai-embed-widget"),
+        "TA-a7lz8duvSOGQVbFaKs90YI8_rcCUw"
+      );
+    </script>
   </body>
 </html>
